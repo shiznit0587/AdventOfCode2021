@@ -20,6 +20,11 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 
 For this year, I decided to try my hand at **Python**. Rachel's been learning it in one of her PHD courses, so I thought it'd be fun with her able to follow along this year.
 
+### Day 2
+
+- List comprehension seems easier to work with that the `map()` function.
+- I really wanted to use the new `match` patterns from python 3.10, but it was taking a long time to get my dev environment configured to use it by default. Between the system installs, brew installs, and pyenv installs, I gave up trying to get them all to play nicely and not keep overriding the default to 3.9.
+
 ### Day 1
 
 - I modeled this year's project after last year's. The structure with a README.md per day is nice, and code-wise, I'm starting with timing support already implemented.
