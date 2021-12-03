@@ -1,6 +1,7 @@
 import time
 from Day1.day1 import *
 from Day2.day2 import *
+from Day3.day3 import *
 
 def timeday(day, method):
     t = time.time()
@@ -16,6 +17,7 @@ if __name__ == "__main__":
 
     timeday(1, day1)
     timeday(2, day2)
+    timeday(3, day3)
 
     t = time.time() - t
 
