@@ -15,10 +15,20 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 - [Python Cheat Sheet](https://www.pythoncheatsheet.org/)
 - [W3 Schools - Python](https://www.w3schools.com/python/)
 - [Python Package Index](https://pypi.org/)
+- [Python 3.9 Documentation](https://docs.python.org/3.9/)
 
 ## Journal
 
 For this year, I decided to try my hand at **Python**. Rachel's been learning it in one of her PHD courses, so I thought it'd be fun with her able to follow along this year.
+
+### Day3
+
+- Bit shifting operations are pretty standard in python, unlike F# last year.
+- Ternary syntax is going to take some getting used to.
+- List comprehension supports an `if` clause for filtering, that's cool.
+- Utilized partial functions and named arguments to commonize the O2 and CO2 code paths as much as possible.
+- Radix-based string to int conversion was super helpful at the end.
+- Python doesn't require a specific `def` declaration order like c or rust, good to know!
 
 ### Day 2
 
