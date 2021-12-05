@@ -24,12 +24,24 @@ def day4():
 
     print(f'Winner! Board {winner.id}, sum={winner.sum()}, last call={calls[i]}, score={winner.sum() * calls[i - 1]}')
 
+    loser = winner
+
+    while (not all(map(BingoBoard.check, boards))):
+        for board in boards:
+            board.mark(calls[i])
+            if not board.bingo and board.check():
+                loser = board
+        i += 1
+
+    print(f'Loser! Board {loser.id}, sum={loser.sum()}, last call={calls[i]}, score={loser.sum() * calls[i - 1]}')
+
     print('Running Day 4 - b')
 
 class BingoBoard:
     id : int = 0
     spaces : list[list[int]] = None
     marks : list[list[bool]] = None
+    bingo : bool = False
 
     def __init__(self, id:int, lines:list[str]) -> None:
         self.id = id
@@ -43,6 +55,9 @@ class BingoBoard:
                     self.marks[i][j] = True
 
     def check(self) -> bool:
+        if self.bingo:
+            return True
+
         def checkrow(i) -> bool:
             for j in range(5):
                 if not self.marks[i][j]:
@@ -57,6 +72,7 @@ class BingoBoard:
 
         for i in range(5):
             if checkrow(i) or checkcol(i):
+                self.bingo = True
                 return True
 
         return False
