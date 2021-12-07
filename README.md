@@ -26,6 +26,7 @@ For this year, I decided to try my hand at **Python**. Rachel's been learning it
 - *Finally* utilizing regular expressions for parsing the input.
 - I hit a hurdle for a bit for lines with *de*scending x or y values.
 - I used type aliases for cleaner type hinting throughout my code.
+- I got tripped up on diagonals in part 2 by initially always traversing from the minimum of each axis to the max of each axis defined by the line, basically traversing a different line entirely, when the line was at a decreasing angle.
 
 ### Day 4
 

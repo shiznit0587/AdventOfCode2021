@@ -16,28 +16,34 @@ def day5():
     map = dict()
     for line in lines:
         if line[0][0] == line[1][0]:
-            # print(f'Line passed: {line}')
+            # print(f'Vertical line: {line}')
             x = line[0][0]
             y1 = min(line[0][1], line[1][1])
             y2 = max(line[0][1], line[1][1])
             for y in range(y1, y2 + 1):
                 markmap(map, (x,y))
         elif line[0][1] == line[1][1]:
-            # print(f'Line passed: {line}')
+            # print(f'Horizontal line: {line}')
             y = line[0][1]
             x1 = min(line[0][0], line[1][0])
             x2 = max(line[0][0], line[1][0])
             for x in range(x1, x2 + 1):
                 markmap(map, (x,y))
 
-    overlaps = 0
-    for x,y in map:
-        if map[x,y] >= 2:
-            overlaps += 1
-
-    print(f'Overlap points = {overlaps}')
+    print(f'Overlap points = {countoverlaps(map)}')
 
     print('Running Day 5 - b')
+
+    for line in lines:
+        if line[0][0] != line[1][0] and line[0][1] != line[1][1]:
+            # print(f'Diagonal line: {line}')
+            xinc = 1 if line[1][0] > line[0][0] else -1
+            yinc = 1 if line[1][1] > line[0][1] else -1
+            for x,y in zip(range(line[0][0], line[1][0] + xinc, xinc),
+                           range(line[0][1], line[1][1] + yinc, yinc)):
+                markmap(map, (x,y))
+
+    print(f'Overlap points = {countoverlaps(map)}')
 
 Point = tuple[int, int]
 Line = tuple[Point, Point]
@@ -48,3 +54,10 @@ def markmap(map:Map, point:Point) -> None:
         map[point] = map[point] + 1
     else:
         map[point] = 1
+
+def countoverlaps(map:Map) -> int:
+    overlaps = 0
+    for x,y in map:
+        if map[x,y] >= 2:
+            overlaps += 1
+    return overlaps
