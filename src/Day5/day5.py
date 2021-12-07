@@ -46,6 +46,8 @@ def day5():
 
     print(f'Overlap points = {countoverlaps(map)}')
 
+    print("Day 5 Complete")
+
 
 Point = tuple[int, int]
 Line = tuple[Point, Point]
