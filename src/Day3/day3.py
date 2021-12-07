@@ -1,14 +1,15 @@
 from functools import partial
 
-def day3():
-    print('Running Day 3 - a')
 
-    with open('Day3/input.txt','r') as f:
+def day3():
+    print('Running Day 3 - Part 1')
+
+    with open('Day3/input.txt', 'r') as f:
         numbers = [l.strip() for l in f.readlines()]
 
     NUM_BITS = 12
 
-    counts = [(0,0) for _ in range(NUM_BITS)]
+    counts = [(0, 0) for _ in range(NUM_BITS)]
 
     for i in range(NUM_BITS):
         counts[i] = getbitcounts(numbers, i)
@@ -27,7 +28,7 @@ def day3():
 
     print(f'gamma = {gamma}, epsilon = {epsilon}, product = {gamma * epsilon}')
 
-    print('Running Day 3 - b')
+    print('Running Day 3 - Part 2')
 
     o2 = int(findrating(numbers, partial(filternumbers, comp=o2comp)), 2)
     co2 = int(findrating(numbers, partial(filternumbers, comp=co2comp)), 2)
@@ -36,9 +37,11 @@ def day3():
 
     print('Day 3 Complete')
 
+
 def getbitcounts(numbers, bit):
     zeroes = len([n for n in numbers if n[bit] == '0'])
     return zeroes, len(numbers) - zeroes
+
 
 def findrating(numbers, bitfilterfunc):
     i = 0
@@ -47,13 +50,16 @@ def findrating(numbers, bitfilterfunc):
         i += 1
     return numbers[0]
 
+
 def filternumbers(numbers, bit, comp):
     counts = getbitcounts(numbers, bit)
     criteria = comp(counts)
     return [n for n in numbers if n[bit] == criteria]
 
+
 def o2comp(counts):
     return '1' if counts[1] >= counts[0] else '0'
+
 
 def co2comp(counts):
     return '0' if counts[0] <= counts[1] else '1'

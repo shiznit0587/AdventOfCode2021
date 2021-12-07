@@ -1,4 +1,4 @@
-# Day 3: Binary Diagnostic
+# --- Day 3: Binary Diagnostic ---
 
 The submarine has been making some odd creaking noises, so you ask it to produce a diagnostic report just in case.
 
@@ -33,7 +33,7 @@ The epsilon rate is calculated in a similar way; rather than use the most common
 
 Use the binary numbers in your diagnostic report to calculate the gamma rate and epsilon rate, then multiply them together. **What is the power consumption of the submarine?** (Be sure to represent your answer in decimal, not binary.)
 
-# Part 2
+# --- Part 2 ---
 
 Next, you should verify the **life support rating**, which can be determined by multiplying the **oxygen generator rating** by the **CO2 scrubber rating**.
 

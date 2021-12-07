@@ -1,7 +1,7 @@
 def day4():
-    print('Running Day 4 - a')
+    print('Running Day 4 - Part 1')
 
-    with open('Day4/input.txt','r') as f:
+    with open('Day4/input.txt', 'r') as f:
         lines = [l.strip() for l in f.readlines()]
 
     calls = [int(s) for s in lines[0].split(',')]
@@ -9,7 +9,7 @@ def day4():
     boards = []
     i = 2
     while i < len(lines):
-        boards.append(BingoBoard(len(boards) +1, lines[i:i+5]))
+        boards.append(BingoBoard(len(boards) + 1, lines[i:i+5]))
         i += 6
 
     winner = None
@@ -24,6 +24,8 @@ def day4():
 
     print(f'Winner! Board {winner.id}, sum={winner.sum()}, last call={calls[i]}, score={winner.sum() * calls[i - 1]}')
 
+    print('Running Day 4 - Part 2')
+
     loser = winner
 
     while (not all(map(BingoBoard.check, boards))):
@@ -35,20 +37,21 @@ def day4():
 
     print(f'Loser! Board {loser.id}, sum={loser.sum()}, last call={calls[i]}, score={loser.sum() * calls[i - 1]}')
 
-    print('Running Day 4 - b')
+    print("Day 4 Complete")
+
 
 class BingoBoard:
-    id : int = 0
-    spaces : list[list[int]] = None
-    marks : list[list[bool]] = None
-    bingo : bool = False
+    id: int = 0
+    spaces: list[list[int]] = None
+    marks: list[list[bool]] = None
+    bingo: bool = False
 
-    def __init__(self, id:int, lines:list[str]) -> None:
+    def __init__(self, id: int, lines: list[str]) -> None:
         self.id = id
         self.spaces = [[int(s) for s in l.split()] for l in lines]
         self.marks = [[False for _ in range(5)] for _ in range(5)]
 
-    def mark(self, call:int) -> None:
+    def mark(self, call: int) -> None:
         for i in range(5):
             for j in range(5):
                 if self.spaces[i][j] == call:

@@ -1,7 +1,7 @@
 def day1():
-    print("Running Day 1 - a")
+    print("Running Day 1 - Part 1")
 
-    with open("Day1/input.txt","r") as f:
+    with open("Day1/input.txt", "r") as f:
         depths = list(map(int, f.readlines()))
 
     count = 0
@@ -14,7 +14,7 @@ def day1():
 
     print(f'Count = {count}')
 
-    print("Running Day 1 - b")
+    print("Running Day 1 - Part 2")
 
     count = 0
     prev = sum(depths[0:3])

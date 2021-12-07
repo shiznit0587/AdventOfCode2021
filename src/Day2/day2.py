@@ -1,7 +1,7 @@
 def day2():
-    print('Running Day 2 - a')
+    print('Running Day 2 - Part 1')
 
-    with open('Day2/input.txt','r') as f:
+    with open('Day2/input.txt', 'r') as f:
         commands = [line.split() for line in f.readlines()]
         commands = [tuple((c[0], int(c[1]))) for c in commands]
 
@@ -18,7 +18,7 @@ def day2():
 
     print(f'position = {position}, depth = {depth}, product = {position * depth}')
 
-    print('Running Day 2 - b')
+    print('Running Day 2 - Part 2')
 
     position, depth, aim = 0, 0, 0
 
