@@ -21,7 +21,20 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 
 For this year, I decided to try my hand at **Python**. Rachel's been learning it in one of her PHD courses, so I thought it'd be fun with her able to follow along this year.
 
-### Day3
+### Day 5
+
+- *Finally* utilizing regular expressions for parsing the input.
+- I hit a hurdle for a bit for lines with *de*scending x or y values.
+- I used type aliases for cleaner type hinting throughout my code.
+
+### Day 4
+
+- First use of a class. I don't like that every method requires specific use of `self` to access instance attributes.
+- Started using type hinting more, really helps assist both the language server and the programmer.
+- Finally used `map` and `all` successfully.
+- I tried using list duplication with `*` as a shorthand for construction, but learned the hard was that the list's contents are not deep-copied, even when trivially copyable.
+
+### Day 3
 
 - Bit shifting operations are pretty standard in python, unlike F# last year.
 - Ternary syntax is going to take some getting used to.
