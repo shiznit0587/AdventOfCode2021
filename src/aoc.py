@@ -14,7 +14,7 @@ def timeday(day, method):
     method()
     t = time.time() - t
 
-    print(f'Elapsed Time for Day {day}: {t:.3f} ms')
+    print(f'Elapsed Time for Day {day}: {t:.3f} secs')
 
 
 if __name__ == "__main__":
