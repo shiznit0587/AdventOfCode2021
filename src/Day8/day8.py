@@ -19,6 +19,7 @@ def day8():
         'acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab |\
          cdfeb fcadb cdfeb cdbaf')
     deduce(e)
+    genmap(e)
     decode(e)
 
     print('Day 8 Complete')
@@ -28,9 +29,6 @@ class Entry:
         parts = [s.strip() for s in line.split('|')]
         self.patterns = parts[0].split()
         self.output = parts[1].split()
-
-def decode(entry:Entry) -> None:
-    entry.value = 0
 
 def deduce(entry:Entry) -> None:
     pipmap = dict()
@@ -75,5 +73,27 @@ def deduce(entry:Entry) -> None:
     # At this point we've deduced all but *`e`*.
     pipmap[[c for c in all_pips if c not in pipmap][0]] = 'e'
 
-    # Set entry.digits
-    
+def genmap(entry:Entry) -> None:
+    digits = dict()
+    entry.digits = digits
+
+    for p in entry.patterns:
+        mapped_p = [entry.pipmap[c] for c in p]
+        mapped_p = ''.join(sorted(mapped_p))
+
+        match mapped_p:
+            case 'abcefg'   : digit = '0'
+            case 'cf'       : digit = '1'
+            case 'acdeg'    : digit = '2'
+            case 'acdfg'    : digit = '3'
+            case 'bcdf'     : digit = '4'
+            case 'abdfg'    : digit = '5'
+            case 'abdefg'   : digit = '6'
+            case 'acf'      : digit = '7'
+            case 'abcdefg'  : digit = '8'
+            case 'abcdfg'   : digit = '9'
+
+        digits[''.join(sorted(p))] = digit
+
+def decode(entry:Entry) -> None:
+    entry.value = 0
