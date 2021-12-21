@@ -15,12 +15,12 @@ def day8():
 
     print('Running Day 8 - Part 2')
 
-    e = Entry(
-        'acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab |\
-         cdfeb fcadb cdfeb cdbaf')
-    deduce(e)
-    genmap(e)
-    decode(e)
+    for e in entries:
+        deduce(e)
+        genmap(e)
+        decode(e)
+
+    print(f'Output sum = {sum(map(lambda e: e.value, entries))}')
 
     print('Day 8 Complete')
 
@@ -96,4 +96,4 @@ def genmap(entry:Entry) -> None:
         digits[''.join(sorted(p))] = digit
 
 def decode(entry:Entry) -> None:
-    entry.value = 0
+    entry.value = int(''.join([entry.digits[''.join(sorted(o))] for o in entry.output]))
