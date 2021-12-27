@@ -8,6 +8,7 @@ from Day6.day6 import *
 from Day7.day7 import *
 from Day8.day8 import *
 from Day9.day9 import *
+from Day10.day10 import *
 
 
 def timeday(day, method):
@@ -16,10 +17,12 @@ def timeday(day, method):
     t = time.time() - t
 
     print(f'Elapsed Time for Day {day}: {t:.3f} secs')
+    print()
 
 
 if __name__ == "__main__":
     print("\n🎅🎅🎅🎅🎅 ADVENT OF CODE 2021 🎅🎅🎅🎅🎅\n")
+    print()
 
     t = time.time()
 
@@ -32,6 +35,7 @@ if __name__ == "__main__":
     timeday(7, day7)
     timeday(8, day8)
     timeday(9, day9)
+    timeday(10, day10)
 
     t = time.time() - t
 
