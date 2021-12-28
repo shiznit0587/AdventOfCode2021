@@ -33,9 +33,8 @@ def day10():
                     case '{': score = score * 5 + 3
                     case '<': score = score * 5 + 4
             ac_scores.append(score)
-    ac_scores.sort()
 
     print(f'Corruption Score = {c_score}')
     print('Running Day 10 - Part 2')
-    print(f'Autocomplete Score = {ac_scores[len(ac_scores)//2]}')
+    print(f'Autocomplete Score = {sorted(ac_scores)[len(ac_scores)//2]}')
     print("Day 10 Complete")
