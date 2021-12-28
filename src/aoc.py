@@ -16,13 +16,11 @@ def timeday(day, method):
     method()
     t = time.time() - t
 
-    print(f'Elapsed Time for Day {day}: {t:.3f} secs')
-    print()
+    print(f'Elapsed Time for Day {day}: {t:.3f} secs\n')
 
 
 if __name__ == "__main__":
     print("\n🎅🎅🎅🎅🎅 ADVENT OF CODE 2021 🎅🎅🎅🎅🎅\n")
-    print()
 
     t = time.time()
 
@@ -39,4 +37,4 @@ if __name__ == "__main__":
 
     t = time.time() - t
 
-    print(f'Total Elapsed Time: {t:.3f} ms')
+    print(f'Total Elapsed Time: {t:.3f} ms\n')
