@@ -24,18 +24,10 @@ def day11():
 
 
 def step_ocean(ocean:list[list[int]]) -> int:
-    # First, the energy level of each octopus increases by 1.
     flashes = set()
     for p in itertools.product(range(10), range(10)):
         tick(ocean, flashes, *p)
 
-    # Then, any octopus with an energy level greater than 9 flashes. 
-    # This increases the energy level of all adjacent octopuses by 1, 
-    # including octopuses that are diagonally adjacent. If this causes 
-    # an octopus to have an energy level greater than 9, it also flashes. 
-    # This process continues as long as new octopuses keep having their 
-    # energy level increased beyond 9. (An octopus can only flash 
-    # at most once per step.)
     visited = set()
     while flashes:
         flash = flashes.pop()
@@ -43,8 +35,6 @@ def step_ocean(ocean:list[list[int]]) -> int:
         for p in [p for p in getadjacent(*flash) if p not in visited and p not in flashes]:
             tick(ocean, flashes, *p)
 
-    # Finally, any octopus that flashed during this step has its energy 
-    # level set to 0, as it used all of its energy to flash.
     for x, y in visited:
         ocean[x][y] = 0
     
@@ -59,6 +49,6 @@ def tick(ocean:list[list[int]], flashes:set[tuple[int,int]], x:int, y:int) -> No
 
 def getadjacent(x:int, y:int) -> list[tuple[int, int]]:
     return [p for p in 
-        [(x + p[0] - 1, y + p[1] - 1) for p in itertools.product(range(3), range(3)) 
-        if p != (1, 1)]
+        [(x + p[0], y + p[1]) for p in itertools.product(range(-1, 2), range(-1, 2)) 
+        if p != (0, 0)]
     if p[0] in range(10) and p[1] in range(10)]
