@@ -12,6 +12,7 @@ from Day10.day10 import *
 from Day11.day11 import *
 from Day12.day12 import *
 from Day13.day13 import *
+from Day14.day14 import *
 
 
 def timeday(day, method):
@@ -40,6 +41,7 @@ if __name__ == "__main__":
     timeday(11, day11)
     timeday(12, day12)
     timeday(13, day13)
+    timeday(14, day14)
 
     t = time.time() - t
 
