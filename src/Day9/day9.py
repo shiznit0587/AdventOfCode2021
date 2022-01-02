@@ -1,6 +1,7 @@
 import itertools
 import math
 
+
 def day9():
     print('Running Day 9 - Part 1')
 
@@ -11,8 +12,8 @@ def day9():
     lowpoints = []
 
     for i, j in itertools.product(range(xmax), range(ymax)):
-        if all(map(lambda p : int(lines[i][j]) < int(lines[p[0]][p[1]]), [p for p in getadjacent(i, j, xmax, ymax)])):
-            lowpoints.append((i,j))
+        if all(map(lambda p: int(lines[i][j]) < int(lines[p[0]][p[1]]), [p for p in getadjacent(i, j, xmax, ymax)])):
+            lowpoints.append((i, j))
 
     print(f'Risk Level = {sum([int(lines[x][y]) + 1 for x,y in lowpoints])}')
 
@@ -35,6 +36,6 @@ def day9():
     print('Day 9 Complete')
 
 
-def getadjacent(x:int, y:int, xmax:int, ymax:int) -> list[tuple[int, int]]:
+def getadjacent(x: int, y: int, xmax: int, ymax: int) -> list[tuple[int, int]]:
     return [p for p in [(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)]
-    if p[0] in range(xmax) and p[1] in range(ymax)]
+            if p[0] in range(xmax) and p[1] in range(ymax)]

@@ -1,5 +1,6 @@
 import itertools
 
+
 def day11():
     print('Running Day 11 - Part 1')
 
@@ -17,13 +18,13 @@ def day11():
     flashes, step = 0, 100
     while flashes != 100:
         flashes, step = step_ocean(ocean), step + 1
-    
+
     print(f'First step with 100 flashes = {step}')
 
     print("Day 11 Complete")
 
 
-def step_ocean(ocean:list[list[int]]) -> int:
+def step_ocean(ocean: list[list[int]]) -> int:
     flashes = set()
     for p in itertools.product(range(10), range(10)):
         tick(ocean, flashes, *p)
@@ -37,18 +38,18 @@ def step_ocean(ocean:list[list[int]]) -> int:
 
     for x, y in visited:
         ocean[x][y] = 0
-    
+
     return len(visited)
 
 
-def tick(ocean:list[list[int]], flashes:set[tuple[int,int]], x:int, y:int) -> None:
+def tick(ocean: list[list[int]], flashes: set[tuple[int, int]], x: int, y: int) -> None:
     ocean[x][y] += 1
     if ocean[x][y] > 9:
-        flashes.add((x,y))
+        flashes.add((x, y))
 
 
-def getadjacent(x:int, y:int) -> list[tuple[int, int]]:
-    return [p for p in 
-        [(x + p[0], y + p[1]) for p in itertools.product(range(-1, 2), range(-1, 2)) 
-        if p != (0, 0)]
-    if p[0] in range(10) and p[1] in range(10)]
+def getadjacent(x: int, y: int) -> list[tuple[int, int]]:
+    return [p for p in
+            [(x + p[0], y + p[1]) for p in itertools.product(range(-1, 2), range(-1, 2))
+             if p != (0, 0)]
+            if p[0] in range(10) and p[1] in range(10)]

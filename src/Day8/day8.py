@@ -5,10 +5,10 @@ def day8():
         entries = [Entry(l) for l in f.readlines()]
 
     count = 0
-    for p in map(lambda e : e.output, entries):
+    for p in map(lambda e: e.output, entries):
         for s in p:
             match len(s):
-                case (2|3|4|7):
+                case (2 | 3 | 4 | 7):
                     count += 1
 
     print(f'Unique digit appearances = {count}')
@@ -24,13 +24,15 @@ def day8():
 
     print('Day 8 Complete')
 
+
 class Entry:
-    def __init__(self, line:str) -> None:
+    def __init__(self, line: str) -> None:
         parts = [s.strip() for s in line.split('|')]
         self.patterns = parts[0].split()
         self.output = parts[1].split()
 
-def deduce(entry:Entry) -> None:
+
+def deduce(entry: Entry) -> None:
     pipmap = dict()
     entry.pipmap = pipmap
 
@@ -49,10 +51,10 @@ def deduce(entry:Entry) -> None:
     #       One of those existed in 1. That overlap maps to *`c`*.
     #         We can then also deduce *`f`*.
     patterns_with_6 = [p for p in entry.patterns if len(p) == 6]
-    unshared = [c for c in all_pips if len([p for p in patterns_with_6 if c in p]) in range(1,3)]
+    unshared = [c for c in all_pips if len([p for p in patterns_with_6 if c in p]) in range(1, 3)]
     pipmap[[c for c in unshared if c in pips_of_1][0]] = 'c'
     pipmap[[c for c in pips_of_1 if c not in pipmap][0]] = 'f'
-    
+
     # - Of the 3 numbers with 5 pips (2,3,5),
     #   3 pips will exist in 3 numbers, those must map to `adg`.
     #     We already know `a`. We'll deduce `d` from `g` later.
@@ -73,7 +75,8 @@ def deduce(entry:Entry) -> None:
     # At this point we've deduced all but *`e`*.
     pipmap[[c for c in all_pips if c not in pipmap][0]] = 'e'
 
-def genmap(entry:Entry) -> None:
+
+def genmap(entry: Entry) -> None:
     digits = dict()
     entry.digits = digits
 
@@ -95,5 +98,6 @@ def genmap(entry:Entry) -> None:
 
         digits[''.join(sorted(p))] = digit
 
-def decode(entry:Entry) -> None:
+
+def decode(entry: Entry) -> None:
     entry.value = int(''.join([entry.digits[''.join(sorted(o))] for o in entry.output]))

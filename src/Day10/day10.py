@@ -14,7 +14,7 @@ def day10():
             match (op, line[i]):
                 case (_, '(' | '[' | '{' | '<'):
                     ops = c + ops
-                case ('(',')') | ('[',']') | ('{','}') | ('<','>'):
+                case ('(', ')') | ('[', ']') | ('{', '}') | ('<', '>'):
                     ops = ops[1:]
                 case _:
                     corrupted = True
