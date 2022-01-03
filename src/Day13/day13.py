@@ -4,7 +4,7 @@ import re
 def day13():
     print('Running Day 13 - Part 1')
 
-    dots: set[tuple[int, int]] = {}
+    dots: set[tuple[int, int]] = set()
     folds: list[tuple[str, int]] = []
 
     with open('Day13/input.txt', 'r') as f:
