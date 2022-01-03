@@ -47,4 +47,4 @@ if __name__ == "__main__":
 
     t = time.time() - t
 
-    print(f'Total Elapsed Time: {t:.3f} ms\n')
+    print(f'Total Elapsed Time: {t:.3f} secs\n')
