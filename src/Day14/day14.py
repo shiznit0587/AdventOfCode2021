@@ -52,8 +52,6 @@ def day14():
                 else:
                     pair_counts[c, b] = prev_pair_counts[a, b]
 
-    min_char = min(char_counts, key=char_counts.get)
-    max_char = max(char_counts, key=char_counts.get)
-    print(f'Element Range Delta = {char_counts[max_char] - char_counts[min_char]}')
+    print(f'Element Range Delta = {max(char_counts.values()) - min(char_counts.values())}')
 
     print("Day 14 Complete")
