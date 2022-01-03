@@ -25,7 +25,7 @@ def calcrisk(xmax, ymax, riskpred):
     visited: list[list[bool]] = [[False for _ in range(ymax)] for _ in range(xmax)]
     risks: list[list[int]] = [[sys.maxsize for _ in range(ymax)] for _ in range(xmax)]
     risks[0][0] = 0
-    queue:list[tuple[int, tuple[int, int]]] = [(0, (0, 0))]
+    queue: list[tuple[int, tuple[int, int]]] = [(0, (0, 0))]
 
     while queue:
         risk, (x, y) = heappop(queue)
