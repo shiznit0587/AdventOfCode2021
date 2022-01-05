@@ -12,6 +12,8 @@ def day18():
 
     print('Running Day 18 - Part 2')
 
+    print(f'Maximum Magnitude of any sum = {max(map(lambda p: (p[0] + p[1]).magnitude(), itertools.permutations(numbers, 2)))}')
+
     print("Day 18 Complete")
 
 
