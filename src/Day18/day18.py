@@ -104,8 +104,7 @@ class SFNumber(list[SFDigit]):
     def __add__(self, other: SFNumber) -> SFNumber:
         sum = SFNumber()
         for d in itertools.chain(self, other):
-            d.depth += 1
-            sum.append(d)
+            sum.append(SFDigit(d.value, d.depth + 1))
         sum.reduce()
         return sum
 
