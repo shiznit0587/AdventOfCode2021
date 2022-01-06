@@ -34,29 +34,21 @@ class Packet:
     def sumversion(self) -> int:
         v = self.version
         if self.subpackets is not None:
-            v += sum(map(lambda p: p.sumversion(), self.subpackets))
+            v += sum(map(Packet.sumversion, self.subpackets))
         return v
 
     def calcvalue(self) -> int:
-        values = list(map(lambda p: p.calcvalue(), self.subpackets)) if self.subpackets is not None else None
+        values = list(map(Packet.calcvalue, self.subpackets)) if self.subpackets is not None else None
 
         match self.typeid:
-            case 0:
-                return sum(values)
-            case 1:
-                return functools.reduce(operator.mul, values)
-            case 2:
-                return min(values)
-            case 3:
-                return max(values)
-            case 4:
-                return self.literal
-            case 5:
-                return 1 if values[0] > values[1] else 0
-            case 6:
-                return 1 if values[0] < values[1] else 0
-            case 7:
-                return 1 if values[0] == values[1] else 0
+            case 0: return sum(values)
+            case 1: return functools.reduce(operator.mul, values)
+            case 2: return min(values)
+            case 3: return max(values)
+            case 4: return self.literal
+            case 5: return 1 if values[0] > values[1] else 0
+            case 6: return 1 if values[0] < values[1] else 0
+            case 7: return 1 if values[0] == values[1] else 0
 
 
 class Transmission:
@@ -65,7 +57,7 @@ class Transmission:
         self.bits = 0
         self.buffer = 0
 
-    def take(self, n: int):
+    def take(self, n: int) -> int:
         while self.bits < n:
             self.buffer = self.buffer << 8
             self.buffer = self.buffer | int(self.transmission[:2], 16)
