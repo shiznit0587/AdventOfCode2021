@@ -26,6 +26,7 @@ def day19():
     # 12 points => 12*11 / 2 => 66 manhattan distances.
     # It's... quite an assumption though. And once I think two scanners will match up, how do I pick out which points were used?
     # Do I have to recalculate the distances between points? (Do I just store them, and ID the beacons somehow?)
+    # Instead of manhattan distances, I need the set of directed distance vertexes. And I'll need to test with all 12 rotations.
 
     print('Running Day 19 - Part 2')
 
